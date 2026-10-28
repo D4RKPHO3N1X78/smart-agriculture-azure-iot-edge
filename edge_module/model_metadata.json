@@ -1,0 +1,67 @@
+{
+  "model_type": "GradientBoosting",
+  "features": [
+    "soil_moisture",
+    "temperature",
+    "humidity",
+    "rainfall"
+  ],
+  "target": "irrigation_action",
+  "classes": {
+    "0": "don't irrigate",
+    "1": "irrigate"
+  },
+  "train_samples": 3200,
+  "test_samples": 800,
+  "metrics": {
+    "cv_f1": 0.9595,
+    "test_accuracy": 0.9825,
+    "test_precision": 0.9657,
+    "test_recall": 0.9548,
+    "test_f1": 0.9602,
+    "test_roc_auc": 0.9993,
+    "confusion_matrix": [
+      [
+        617,
+        6
+      ],
+      [
+        8,
+        169
+      ]
+    ]
+  },
+  "feature_importances": {
+    "soil_moisture": 0.5632,
+    "temperature": 0.1688,
+    "humidity": 0.0489,
+    "rainfall": 0.219
+  },
+  "classification_report": {
+    "Don't Irrigate (0)": {
+      "precision": 0.9872,
+      "recall": 0.9903691813804173,
+      "f1-score": 0.9887820512820513,
+      "support": 623.0
+    },
+    "Irrigate (1)": {
+      "precision": 0.9657142857142857,
+      "recall": 0.9548022598870056,
+      "f1-score": 0.9602272727272727,
+      "support": 177.0
+    },
+    "accuracy": 0.9825,
+    "macro avg": {
+      "precision": 0.9764571428571429,
+      "recall": 0.9725857206337114,
+      "f1-score": 0.974504662004662,
+      "support": 800.0
+    },
+    "weighted avg": {
+      "precision": 0.9824462857142856,
+      "recall": 0.9825,
+      "f1-score": 0.9824643065268066,
+      "support": 800.0
+    }
+  }
+}

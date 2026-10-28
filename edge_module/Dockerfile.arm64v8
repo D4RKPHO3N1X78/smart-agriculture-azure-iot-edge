@@ -1,0 +1,27 @@
+# ARM64 Dockerfile for Raspberry Pi 4/5 and Industrial Edge Gateways
+FROM arm64v8/python:3.11-slim AS builder
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir --user -r requirements.txt
+
+FROM arm64v8/python:3.11-slim AS runner
+
+WORKDIR /app
+RUN useradd -m -u 1000 moduleuser
+
+COPY --from=builder /root/.local /home/moduleuser/.local
+ENV PATH=/home/moduleuser/.local/bin:$PATH
+
+COPY --chown=moduleuser:moduleuser main.py predictor.py ./
+COPY --chown=moduleuser:moduleuser irrigation_model.joblib model_metadata.json ./
+
+USER moduleuser
+ENV PYTHONUNBUFFERED=1
+
+ENTRYPOINT ["python3", "-u", "main.py"]
