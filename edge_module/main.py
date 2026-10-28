@@ -281,3 +281,4 @@ if __name__ == "__main__":
         asyncio.run(module.run_loop())
     except KeyboardInterrupt:
         logger.info("Module stopped by user.")
+

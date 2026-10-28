@@ -217,3 +217,4 @@ az iot hub module-twin update \
     --module-id irrigationDecisionModule \
     --desired '{"mode": "manual_override", "moisture_bias_offset": 2.0}'
 ```
+

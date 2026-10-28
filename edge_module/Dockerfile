@@ -32,3 +32,4 @@ USER moduleuser
 ENV PYTHONUNBUFFERED=1
 
 ENTRYPOINT ["python3", "-u", "main.py"]
+

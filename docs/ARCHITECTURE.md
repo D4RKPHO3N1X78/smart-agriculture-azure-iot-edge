@@ -116,3 +116,4 @@ Operators manage on-site parameters remotely through the Azure IoT Hub Module Tw
 | `moisture_bias_offset` | float | `0.0` | Calibrates sensor drift without retraining |
 | `min_confidence_threshold`| float | `0.60` | Minimum confidence required to trigger valve |
 | `telemetry_interval_sec` | int | `5` | Upstream telemetry frequency |
+

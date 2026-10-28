@@ -162,3 +162,4 @@ if __name__ == "__main__":
             f"Input: {tc} => Decision: [{res['decision'].upper()}] (Conf: {res['confidence']*100:.1f}%, Latency: {res['latency_ms']}ms)"
         )
         print(f"  Reason: {res['reason']}\n")
+
